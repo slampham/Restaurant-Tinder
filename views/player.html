@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Restaurant Tinder</title>
+
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/playerStyle.css">
+  </head>
+  
+  <body>
+    <main>
+      <img id="restaurant-img" alt="This restaurant doesn't have an image :("> 
+
+      <section id="details">
+        <span id="name"></span> <span id="price"></span>
+        <h3 id="rating">
+          <i class="fa fa-star-o" style=""></i>
+          <i class="fa fa-star-o" style=""></i>
+          <i class="fa fa-star-o" style=""></i>
+          <i class="fa fa-star-o" style=""></i>
+          <i class="fa fa-star-o" style=""></i>
+        </h3>
+        <h3 id="address"></h3>
+        <!-- <button id="reviews">Reviews</button> -->
+
+        <input type="image" class="swipe" id="left-swipe" src="https://cdn.glitch.com/0beec652-248b-4a22-b4f1-1b44f3472fda%2FrejectButton.svg?v=1590654905344" alt="left swipe">
+        <input type="image" class="swipe" id="right-swipe" src="https://cdn.glitch.com/0beec652-248b-4a22-b4f1-1b44f3472fda%2FheartButton.svg?v=1590654901579" alt="right-swipe">
+      </section>
+
+      <h1 id="waiting">Still waiting for other players...</h1>
+
+      <h1 class="match">Success!</h1>
+      <h1 class="match">We found a match.</h1>
+
+      <h1 class="no-match">We couldn't find a match for you :(</h1>
+      <h1 class="no-match">Try again!</h1>
+    </main>
+  </body>
+  
+  <footer>
+    <script src="../public/playerScript.js"></script>
+  </footer>
+</html>

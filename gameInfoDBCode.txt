@@ -1,0 +1,46 @@
+/* Game Information Database */
+const gameInfoDB = new sql.Database("gameInfo.db");
+
+let cmd2 = " SELECT name FROM sqlite_master WHERE type='table' AND name='GameInfoTable' ";
+gameInfoDB.get(cmd2, function (err, val) {
+    if (val == undefined) {
+        console.log("No database file - creating one");
+        createGameInfoDB();
+    } else {
+        console.log("Database file found");
+    }
+});
+
+function createGameInfoDB() { 
+  const cmd = 'CREATE TABLE GameInfoTable (rowIdNum INTEGER PRIMARY KEY, url TEXT, numPlayers INTEGER, currentRestaurantId TEXT, roundNum INTEGER, numLikes INTEGER, numDislikes INTEGER)';
+  gameInfoDB.run(cmd, function(err, val) {
+    if (err) {
+      console.log("Database creation failure",err.message);
+    } else {
+      console.log("Created game information database");
+    }
+  });
+}
+
+function storeGameInfo(url, numPlayers, currentRestaurantId, roundNum, numLikes, numDislikes) { 
+  console.log('storing game information')
+  let cmd = "INSERT INTO GameInfoTable (url, numPlayers, currentRestaurantId, roundNum, numLikes, numDislikes) VALUES (?,?,?,?,?,?) ";
+  gameInfoDB.run(cmd, url, numPlayers, currentRestaurantId, roundNum, numLikes, numDislikes, function (err) {
+    if (err) {
+      console.log("DB insert error", err.message);
+    } else {
+      let newId = this.lastId;
+    }
+  })
+}
+
+// Nathan: added restid bc line 152 was missing an item, feel free to change
+function getGameInfo(currentRestaurantId) {
+  let cmd = "SELECT * FROM GameInfoTable WHERE currentRestaurantId = ?";
+  gameInfoDB.get(cmd, currentRestaurantId, (err, table) => {
+    if (err) console.error("Error with getGameInfo(): ", err);
+    else {
+      return table;
+    }
+  })
+}
