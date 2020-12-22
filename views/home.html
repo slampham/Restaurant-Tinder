@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../public/homeStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <script type="text/javascript" src="../public/categories.js"></script>
+  <body>
+    <header>
+    </header>
+    <main>
+      <div id="search-controls">
+        <h3> Search Controls </h3>
+        
+        <!-- Location Controls -->
+        <div class="input">
+          <!-- <form action="/action_page.php" method="get"> -->
+            <label for="">Location:</label>
+            <input list="" name="" id="location">
+          <!-- </form> -->
+        </div>
+        
+        <!-- Keyword Controls-->
+        <div class="input">
+          <!-- <form action="/action_page.php" method="get" id="keyword-controls"> -->
+            <label for="keyword-search">Keywords (comma-separated):</label>
+<!--             <input list="restaurants" class="keyword-search"> -->
+            <input class="keyword-search" type="text" list="restaurants" multiple="multiple">
+            <datalist id="restaurants">
+            </datalist>
+          <!-- </form> -->
+        </div>
+      </div>
+      
+      <div id="start">
+        <h1 id="title">RESTAURANT TINDER</h1>
+        <button id="start-game">Click Here to Start</button>
+      </div>
+      <div id="get-restaurants-div">
+        <button id="get-restaurants">Get Restaurants!</button>
+      </div>
+      <div id="player-link">
+        <p id="player-link-text">Share this link with your friends:</p>
+        <a href"" id="link"></a>
+      </div>
+    </main>
+  </body>
+  
+  <script src="../public/homeScript.js"></script>
+</html>

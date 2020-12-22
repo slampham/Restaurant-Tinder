@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+  background: #ff6b6b;
+  font-family: 'Open Sans', serif;
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+h1 { 
+  font-family: 'Open Sans', serif;
+  color: white;
+  font-size: 64px;
+  margin-top: 250px;
+}
+
+#start {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#start-game {
+  background: transparent; 
+  color: white;
+  font-size: 32px;
+  border-style: none;
+}
+
+#get-restaurants-div {
+  width: 100%;
+  height: 100%; 
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#get-restaurants {
+  background: transparent; 
+  color: white;
+  font-size: 32px;
+  border-style: solid;
+  border-color: white;
+}
+
+#search-controls {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  color: white;
+  justify-content: center;
+}
+
+#player-link {
+  display: none;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  margin-top: 40px;
+}
+
+#link { 
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#player-link-text { 
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.input {
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  
+  #start{
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  #title {
+    font-size: 40px;
+  }
+  
+  #start-game {
+    font-size: 24px;
+  }
+  
+}
