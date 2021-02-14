@@ -1,5 +1,5 @@
 // Websocket code
-const url = "wss://complex-pebble-wealth.glitch.me";
+const url = "wss://frill-quill-move.glitch.me";
 const connection = new WebSocket(url);
 
 let gameId;
@@ -26,8 +26,8 @@ connection.onmessage = (message) => {
     document.getElementById("search-controls").style.display = "flex";
     
     // Display link
-    document.getElementById("link").innerHTML = "https://complex-pebble-wealth.glitch.me/player.html?" + gameId;
-    document.getElementById("link").href = "https://complex-pebble-wealth.glitch.me/player.html?" + gameId;
+    document.getElementById("link").innerHTML = "https://frill-quill-move.glitch.me/player.html?" + gameId;
+    document.getElementById("link").href = "https://frill-quill-move.glitch.me/player.html?" + gameId;
     document.getElementById("player-link").style.display=  "flex";
   }
   
@@ -37,15 +37,13 @@ connection.onmessage = (message) => {
   
   // Redirect
   if (msgType=="redirectToPlayerView") {
-    window.location.href = "https://complex-pebble-wealth.glitch.me/player.html?id=" + gameId;
+    window.location.href = "https://frill-quill-move.glitch.me/player.html?id=" + gameId;
   }
   
 }
 
-
 // Event Listener to create game
 document.getElementById("start-game").addEventListener('click', function() {
-  
   document.getElementById("start-game").innerHTML = "Starting..."
   
   // lets the server know a new game is trying to be initiated
@@ -64,19 +62,10 @@ document.getElementById("get-restaurants").addEventListener('click', function() 
   // Get location and keywords, convert to JSON
   var location = document.getElementById("location").value;
   var keywords = document.getElementsByClassName("keyword-search");
-  var keywordArray = keywords[0].value.split(",")
   
-  // TODO: Convert autocomplete titles to yelp aliases
-  // let autocompleteMsg = {
-  //   "type": "autoComplete",
-  //   "data":keywordArray,
-  // }
-  // connection.send(JSON.stringify(autocompleteMsg))
-  
-  var url = gameId
   let data = {
     location: location,
-    keyword: keywords[0].value, //TODO: this should be multiple keywords from after autocomplete
+    keyword: keywords[0].value, 
     url: gameId
   }
   
@@ -89,7 +78,6 @@ document.getElementById("get-restaurants").addEventListener('click', function() 
 
 
 var numKeywords = 0
-// checkKeywords()
 function checkKeywords() { 
   var keywordText = document.getElementsByClassName("keyword-search")[numKeywords].value
   
@@ -105,25 +93,12 @@ function checkKeywords() {
   setTimeout(checkKeywords, 400)
 }
 
-
-
-
-// Ryan added all below code
-
-// get reference to select element
 var sel = document.getElementById('restaurants');
-
-// data is loaded by home.html so ignore this error
 var categories = data;
 
 categories.forEach(category => {
-  // create new option element
   var opt = document.createElement('option');
-
-  // set value property of opt
   opt.value = category; 
-
-  // add opt to end of select box (sel)
   sel.appendChild(opt); 
 });
 

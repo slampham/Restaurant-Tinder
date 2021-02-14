@@ -16,7 +16,6 @@ let gameId = null;
 let numPlayers = 0;
 let swipes = 0, leftSwipes = 0, rightSwipes = 0;
 let round = 0;
-let currRestId = 1;
 let restaurantOrder = [];
 let restaurantIndex = 0;
 
@@ -38,7 +37,7 @@ const restaurantDB = new sql.Database("restaurants.db") /* Restaurant database *
 
 function createRestaurantDB() {
   const cmd = 'CREATE TABLE RestaurantTable (rowIdNum INTEGER PRIMARY KEY, restaurantId TEXT, name TEXT, rating DECIMAL, price TEXT, address TEXT, image_url TEXT, numLikes INTEGER)';
-  restaurantDB.run(cmd, function(err, val) {
+  restaurantDB.run(cmd, function(err) {
     if (err) {
       console.log("Database creation failure",err.message);
     } else {
@@ -78,14 +77,13 @@ function storeRestaurant(restaurant, index, numRestaurants, ws) {
     if (err) {
       console.log("DB insert error", err.message);
     } else {
-      let newId = this.lastId;
     }
     
     // this triggers when last restaurant is inserted
     if (index==numRestaurants-1) {
         console.log("Successfully stored restaurants into database")
         cmd = 'SELECT * FROM RestaurantTable';
-        restaurantDB.all(cmd, (err, restaurants) => {
+        restaurantDB.all(cmd, (err) => {
           if (err)
             console.log(err);
           else {
@@ -162,7 +160,6 @@ wss.on('connection', (ws) => {
           console.log("File read failed:", err)
         }
 
-        // TODO: error here
         var categoriesJSON = JSON.parse(jsonString)
         for (var i = 0 ; i < jsonString.length ; i++ ) {
           if (categoriesJSON[i]['title'] == data.keyword) { 
@@ -342,7 +339,7 @@ function getRestaurants(ws, msgObj, numConnections) {
   xhr.open("GET", apiCall);
   xhr.setRequestHeader("Authorization", "Bearer "+process.env.API_KEY);
   
-  xhr.onloadend = function(e) {
+  xhr.onloadend = function() {
     let responseText = JSON.parse(xhr.responseText);
     let restaurants = responseText.businesses;
     console.log("Received restaurants from API");

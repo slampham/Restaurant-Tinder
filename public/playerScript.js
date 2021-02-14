@@ -1,4 +1,4 @@
-const url = "wss://complex-pebble-wealth.glitch.me";
+const url = "wss://frill-quill-move.glitch.me";
 const connection = new WebSocket(url);
 
 let swiped = false;
