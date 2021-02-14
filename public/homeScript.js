@@ -1,5 +1,5 @@
 // Websocket code
-const url = "wss://frill-quill-move.glitch.me";
+const url = "wss://restaurant-tinder-.glitch.me";
 const connection = new WebSocket(url);
 
 let gameId;
@@ -26,8 +26,8 @@ connection.onmessage = (message) => {
     document.getElementById("search-controls").style.display = "flex";
     
     // Display link
-    document.getElementById("link").innerHTML = "https://frill-quill-move.glitch.me/player.html?" + gameId;
-    document.getElementById("link").href = "https://frill-quill-move.glitch.me/player.html?" + gameId;
+    document.getElementById("link").innerHTML = "https://restaurant-tinder-.glitch.me/player.html?" + gameId;
+    document.getElementById("link").href = "https://restaurant-tinder-.glitch.me/player.html?" + gameId;
     document.getElementById("player-link").style.display=  "flex";
   }
   
@@ -37,7 +37,7 @@ connection.onmessage = (message) => {
   
   // Redirect
   if (msgType=="redirectToPlayerView") {
-    window.location.href = "https://frill-quill-move.glitch.me/player.html?id=" + gameId;
+    window.location.href = "https://restaurant-tinder-.glitch.me/player.html?id=" + gameId;
   }
   
 }
