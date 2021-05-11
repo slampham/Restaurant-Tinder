@@ -1,4 +1,4 @@
-Click this link to see the actual app: https://restaurant-tinder-.glitch.me/
+Click this link to see the actual app: https://restauranttinder.glitch.me/
 
 For this project, we decided to use tinder-style rules over tournament style. There are two rounds in total, so if none of the restaurants had 100% right swipes, then the one with the most votes will be chosen at the end of the second round. Note that swipes do not carry over into the second round. For example, if a restaurant had five votes at the first round, but two votes in the second round, the restaurant will only have two votes at the end. This is becauses users can change their minds in the second round, so we decided it was probably better to reset the number of swipes each restaurant has.
 
